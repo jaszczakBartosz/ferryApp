@@ -1,10 +1,12 @@
 package pl.exercise.ferry.screen;
 
-import java.util.Scanner;
+import pl.exercise.ferry.pricing.PaymentService;
 
-public class MainScreen implements Screen {
+public class MainScreen extends AbstractScreen {
 
-  private final Scanner in = new Scanner(System.in);
+  public MainScreen(ScreenManager screenManager, PaymentService paymentService) {
+    super(screenManager, paymentService);
+  }
 
   public void interact() {
     System.out.println("To jak, do bierzemy się za robote?");
@@ -12,5 +14,10 @@ public class MainScreen implements Screen {
     if ("tak".equalsIgnoreCase(firstResponse)) {
       System.out.println("To super!");
     }
+  }
+
+  @Override
+  public boolean isSupportingId(int screenId) {
+    return 1 == screenId;
   }
 }
