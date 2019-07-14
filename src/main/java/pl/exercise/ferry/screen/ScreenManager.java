@@ -9,7 +9,7 @@ public class ScreenManager {
 
   public ScreenManager() {
     final PaymentService paymentService = new PaymentService();
-    final PersonScreen personScreen = new PersonScreen(this, paymentService);
+    final PersonScreen personScreen = new PersonScreen(this);
     final MainScreen mainScreen = new MainScreen(this);
     final VehicleScreen vehicleScreen = new VehicleScreen(this, paymentService);
     this.screens = Set.of(personScreen, mainScreen, vehicleScreen);

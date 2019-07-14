@@ -11,6 +11,7 @@ public class MainScreen extends AbstractScreen {
     String firstResponse = in.nextLine();
     if ("tak".equalsIgnoreCase(firstResponse)) {
       System.out.println("To super!");
+      screenManager.chooseScreen(ScreenIdentity.VehicleScreen);
     }
   }
 
