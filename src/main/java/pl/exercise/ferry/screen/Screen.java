@@ -4,6 +4,6 @@ public interface Screen {
 
   void interact();
 
-  boolean isSupportingId(int screenId);
+  boolean isSupportingId(ScreenIdentity screenId);
 
 }

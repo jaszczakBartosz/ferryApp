@@ -5,8 +5,11 @@ import pl.exercise.ferry.ticket.CarTicket;
 
 public class VehicleScreen extends AbstractScreen {
 
+  protected final PaymentService paymentService;
+
   VehicleScreen(ScreenManager screenManager, PaymentService paymentService) {
-    super(screenManager, paymentService);
+    super(screenManager);
+    this.paymentService = paymentService;
   }
 
   @Override
@@ -20,7 +23,7 @@ public class VehicleScreen extends AbstractScreen {
   }
 
   @Override
-  public boolean isSupportingId(int screenId) {
-    return 3 == screenId;
+  public boolean isSupportingId(ScreenIdentity screenId) {
+    return ScreenIdentity.VehicleScreen == screenId;
   }
 }

@@ -1,11 +1,9 @@
 package pl.exercise.ferry.screen;
 
-import pl.exercise.ferry.pricing.PaymentService;
-
 public class MainScreen extends AbstractScreen {
 
-  public MainScreen(ScreenManager screenManager, PaymentService paymentService) {
-    super(screenManager, paymentService);
+  public MainScreen(ScreenManager screenManager) {
+    super(screenManager);
   }
 
   public void interact() {
@@ -17,7 +15,7 @@ public class MainScreen extends AbstractScreen {
   }
 
   @Override
-  public boolean isSupportingId(int screenId) {
-    return 1 == screenId;
+  public boolean isSupportingId(ScreenIdentity screenId) {
+    return ScreenIdentity.MainScreen == screenId;
   }
 }

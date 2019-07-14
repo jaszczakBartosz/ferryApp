@@ -10,26 +10,26 @@ public class ScreenManager {
   public ScreenManager() {
     final PaymentService paymentService = new PaymentService();
     final PersonScreen personScreen = new PersonScreen(this, paymentService);
-    final MainScreen mainScreen = new MainScreen(this, paymentService);
+    final MainScreen mainScreen = new MainScreen(this);
     final VehicleScreen vehicleScreen = new VehicleScreen(this, paymentService);
     this.screens = Set.of(personScreen, mainScreen, vehicleScreen);
   }
 
   public void start() {
-    chooseScreen(1);
+    chooseScreen(ScreenIdentity.MainScreen);
   }
 
-  void chooseScreen(int screenId) {
+  void chooseScreen(ScreenIdentity screenId) {
     Screen chosenScreen = findScreen(screenId);
     chosenScreen.interact();
   }
 
-  private Screen findScreen(int screenId) {
+  private Screen findScreen(ScreenIdentity screenId) {
     for (Screen screen : screens) {
       if (screen.isSupportingId(screenId)) {
         return screen;
       }
     }
-    throw new IllegalArgumentException(String.format("There is no screen defined with id %d", screenId));
+    throw new IllegalArgumentException(String.format("There is no screen defined with id %s", screenId));
   }
 }
